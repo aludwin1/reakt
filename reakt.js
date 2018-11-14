@@ -11,26 +11,24 @@ does that mean that something is going to necessarily going to happen to the act
 
 No, not necessarily. Only if there are differences*/
 
-
 const Title = props => {
   return createElement(
     'h1',
-    null,
+    {
+      style: 'color: red',
+      onClick: () => alert('A title'),
+    },
     props.title
   );
 };
 
-const App = createElement('div',
+const App = createElement(
+  'div',
   null,
-  createElement(
-    Title,
-    {title: 'Hello Reakt'}
-  );
-)
-
-
-
-const Title = createElement('h1', {}, 'Hello Reakt');
+  createElement(Title, {
+    title: 'Hello Reakt',
+  })
+);
 
 render(Title, document.body);
 console.log(Title);

@@ -1,6 +1,5 @@
 export function renderNode(vNode) {
   const { type, props, children } = vNode;
-  const element = document.createElement(type);
 
   if (typeof type === 'function') {
     return renderNode(type());
@@ -16,6 +15,9 @@ export function renderNode(vNode) {
       element.appendChild(renderNode(child));
     }
   });
+
+  for (let prop in props) {
+  }
   element.appendChild(document.createTextNode(children));
   return element;
 }
