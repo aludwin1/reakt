@@ -8,6 +8,14 @@ export function renderNode(vNode) {
   if (typeof type === 'string') {
     const element = document.createElement(type);
   }
+
+  children.forEach(child => {
+    if (typeof child === 'string') {
+      element.appendChild(document.createTextNode(children[0]));
+    } else {
+      element.appendChild(renderNode(child));
+    }
+  });
   element.appendChild(document.createTextNode(children));
   return element;
 }
